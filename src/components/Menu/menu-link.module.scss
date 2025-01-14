@@ -1,0 +1,9 @@
+.link {
+  @apply transition-all border-b-2 border-transparent;
+  &:hover {
+    @apply text-link_hover;
+  }
+}
+.active {
+  @apply border-b-2 border-link_hover font-bold;
+}
