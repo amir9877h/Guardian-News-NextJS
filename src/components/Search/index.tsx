@@ -32,10 +32,11 @@ const Search = () => {
       {/* Custom Select Dropdown */}
       <CategorySelector>
         <option value="">All sections</option>
-        <option value="world">World</option>
-        <option value="politics">Politics</option>
         <option value="sport">Sport</option>
+        <option value="politics">Politics</option>
+        <option value="games">Games</option>
         <option value="technology">Technology</option>
+        <option value="science">Science</option>
       </CategorySelector>
     </div>
   );

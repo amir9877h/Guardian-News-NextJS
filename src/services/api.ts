@@ -45,7 +45,11 @@ interface NewsResponse {
 // API methods
 export const newsService = {
   // Get all news
-  getNews: async (page: number = 1, pageSize: number = 10, orderBy: string = "newest") => {
+  getNews: async (
+    page: number = 1,
+    pageSize: number = 10,
+    orderBy: string = "newest"
+  ) => {
     try {
       const response = await newsApi.get<NewsResponse>("/search", {
         params: {
@@ -67,15 +71,21 @@ export const newsService = {
   },
 
   // Get news by section
-  getNewsBySection: async (section: string, page: number = 1) => {
+  getNewsBySection: async (
+    section: string,
+    page: number = 1,
+    pageSize: number = 10,
+    orderBy: string = "newest"
+  ) => {
     try {
       const response = await newsApi.get<NewsResponse>(`/search`, {
         params: {
           "api-key": process.env.NEXT_PUBLIC_GUARDIAN_API_KEY,
           section: section,
           page: page,
-          "show-fields": "headline,thumbnail",
-          "order-by": "newest",
+          "page-size": pageSize,
+          "show-fields": "headline,thumbnail,trailText",
+          "order-by": orderBy,
         },
       });
       return response.data;
