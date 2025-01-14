@@ -120,17 +120,35 @@ export const newsService = {
   },
 
   // Search news
-  searchNews: async (query: string, page: number = 1) => {
+  searchNews: async (
+    query: string,
+    page: number = 1,
+    pageSize: number = 10,
+    section: string = "",
+    orderBy: string = "relevance"
+  ) => {
     try {
       const response = await newsApi.get<NewsResponse>("/search", {
-        params: {
-          "api-key": process.env.NEXT_PUBLIC_GUARDIAN_API_KEY,
-          q: query,
-          page: page,
-          "show-fields": "headline,thumbnail",
-          "order-by": "relevance",
-        },
+        params: section
+          ? {
+              "api-key": process.env.NEXT_PUBLIC_GUARDIAN_API_KEY,
+              q: query,
+              section: section,
+              page: page,
+              "page-size": pageSize,
+              "show-fields": "headline,thumbnail",
+              "order-by": orderBy,
+            }
+          : {
+              "api-key": process.env.NEXT_PUBLIC_GUARDIAN_API_KEY,
+              q: query,
+              page: page,
+              "page-size": pageSize,
+              "show-fields": "headline,thumbnail",
+              "order-by": orderBy,
+            },
       });
+
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {

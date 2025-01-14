@@ -9,20 +9,43 @@ type HomeProps = {
     page?: string;
     pageSize?: string;
     orderBy?: "newest" | "oldest" | "relevance";
+    q?: string;
+    section?: string;
   }>;
 };
 
-export default async function Home({ searchParams = Promise.resolve({}) }: HomeProps) {
+export default async function Home({
+  searchParams = Promise.resolve({}),
+}: HomeProps) {
   const params = await searchParams;
-  
+
   const page = Number(params?.page) || 1;
   const pageSize = Number(params?.pageSize) || 10;
-  const orderBy = params?.orderBy || "newest";
+  const query = params?.q || "";
+  const orderBy = params?.orderBy || query ? "relevance" : "newest";
+  const section = params?.section || "";
 
-  const newsResponse = await newsService.getNews(page, pageSize, orderBy);
+  let newsResponse;
+
+  if (query) {
+    newsResponse = await newsService.searchNews(
+      query,
+      page,
+      pageSize,
+      section,
+      orderBy
+    );
+  } else {
+    newsResponse = await newsService.getNews(page, pageSize, orderBy);
+  }
 
   return (
     <div className="bg-background">
+      {query && (
+        <h1 className="text-2xl font-bold text-center my-4">
+          Search results for: {query}
+        </h1>
+      )}
       <NewsList newsList={newsResponse.response.results} />
       <Pagination
         totalResults={newsResponse.response.total}

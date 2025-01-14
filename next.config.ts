@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
         pathname: "**",
       },
       {
+        protocol: "http",
+        hostname: "media.guim.co.uk",
+        pathname: "**",
+      },
+      {
         protocol: "https",
         hostname: "static.guim.co.uk",
         pathname: "**",

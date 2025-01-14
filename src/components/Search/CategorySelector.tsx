@@ -1,8 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import { useSearch } from "./SearchContext";
 
 const CategorySelector = ({ children }) => {
-  const [category, setCategory] = useState("all");
+  const { category, setCategory } = useSearch();
 
   const handleChange = (event) => {
     setCategory(event.target.value);
