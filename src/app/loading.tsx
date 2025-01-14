@@ -1,7 +1,8 @@
 import React from "react";
+import LoadingFullScreen from "../components/LoadingFullScreen";
 
 const Loading = () => {
-  return <div>Loading</div>;
+  return <LoadingFullScreen />;
 };
 
 export default Loading;

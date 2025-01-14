@@ -9,6 +9,8 @@ const CategorySelector = ({ children }) => {
   };
   return (
     <select
+      aria-label="Select Category"
+      name="category"
       value={category}
       onChange={handleChange}
       className="bg-transparent border-none text-sm focus:outline-none cursor-pointer px-2 dark:bg-gray-800"
