@@ -1,0 +1,31 @@
+// src/components/OrderBy/orderBy.module.scss
+.orderBy {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  //   margin: 1rem 0;
+}
+
+.label {
+  font-weight: 500;
+  color: #333;
+}
+
+.select {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  @apply text-text bg-background dark:!bg-gray-800;
+
+  &:hover {
+    border-color: #999;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #666;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  }
+}
