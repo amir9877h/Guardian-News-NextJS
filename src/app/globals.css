@@ -22,6 +22,10 @@
   --background: #F8FAFC;
   --surface: #f5f5f5;
   --text: #1c1c1c;
+  --news_list: #F8FAFC;
+  --text_light: #808080;
+  --news_card: #f5f5f5;
+  --news_card_border: #ddd;
 }
 
 .dark {
@@ -33,6 +37,10 @@
   --background: #2d3436;
   --surface: #636e72;
   --text: #ffffff;
+  --news_list: #121212;
+  --text_light: #e0e0e0;
+  --news_card: #1e1e1e;
+  --news_card_border: #333;
 }
 
 body {

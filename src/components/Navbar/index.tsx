@@ -9,7 +9,7 @@ const Navbar = () => {
     <header className="py-3 bg-header !text-white">
       <div className="flex items-center justify-between g-container border-b border-gray-100 !border-opacity-15 py-2">
         <div>
-          <Image src={Logo} width={300} height={100} alt="Guardian News" />
+          <Image src={Logo} width={300} height={44} alt="Guardian News" />
         </div>
         <div className="flex items-center">
           <div className="border-r border-gray-100 px-2 border-opacity-30">

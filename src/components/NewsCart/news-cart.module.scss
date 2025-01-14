@@ -1,0 +1,90 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--news_card); /* Dark background for the card */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+  color: var(--text_light); /* Light text color for dark mode */
+  padding: 16px;
+  margin: 16px;
+  cursor: pointer;
+  height: 100%;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow on hover */
+  transform: translateY(-10px); /* Slight lift and subtle scaling */
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  background-color: #333; /* Dark background for image container */
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out; /* Smooth transition for image zoom */
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.25rem;
+  margin: 12px 0;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text); /* Lighter text for titles */
+  transition: color 0.3s ease-in-out; /* Smooth transition for title color */
+}
+
+.description {
+  font-size: 1rem;
+  color: var(--text_light); /* Slightly lighter description text */
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  height: 3.2em; /* Limit the description height */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease-in-out; /* Smooth transition for description color */
+}
+
+.info {
+  font-size: 0.875rem;
+  color: var(--text); /* Lighter info text */
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 0.3s ease-in-out; /* Smooth transition for info text */
+}
+
+@media (max-width: 768px) {
+  .imageContainer {
+    height: 150px;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+}

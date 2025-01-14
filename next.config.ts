@@ -2,9 +2,16 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  // images: {
-  //   domains: ["cdn.imagin.studio"],
-  // },
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "media.guim.co.uk",
+        pathname: "**",
+      },
+    ],
+  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
