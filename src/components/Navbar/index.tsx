@@ -3,6 +3,7 @@ import ThemeToggle from "../ThemeToggle";
 import Logo from "../../../public/Logo.svg";
 import Image from "next/image";
 import Menu from "../Menu";
+import Search from "../Search";
 
 const Navbar = () => {
   return (
@@ -13,7 +14,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center">
           <div className="border-r border-gray-100 px-2 border-opacity-30">
-            profile and search
+            <Search />
           </div>
           <ThemeToggle />
         </div>
