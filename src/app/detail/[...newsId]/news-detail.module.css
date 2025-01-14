@@ -1,0 +1,118 @@
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--news_list);
+  /* Dark background */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text);
+  /* Light text */
+  line-height: 1.3;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #aaa;
+  /* Softer light text */
+  margin-bottom: 20px;
+}
+
+.author,
+.date,
+.source {
+  background-color: #333;
+  /* Darker gray for meta info */
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #ddd;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.author:hover,
+.date:hover,
+.source:hover {
+  background-color: #444;
+  /* Slight hover effect */
+  color: #fff;
+  /* Light up on hover */
+}
+
+.imageWrapper {
+  margin: 20px 0 30px;
+  height: 600px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+}
+
+.image {
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05);
+  /* Slight zoom on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: var(--surface);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.content:hover {
+  /* background-color: #333; */
+  /* Slight highlight on hover */
+}
+
+.readMore {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #0070f3;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 112, 243, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.readMore:hover {
+  background-color: #005bb5;
+  box-shadow: 0 6px 15px rgba(0, 91, 181, 0.6);
+  transform: translateY(-2px);
+  /* Lift effect */
+}
+
+.readMore:active {
+  transform: translateY(1px);
+  /* Press-down effect */
+}

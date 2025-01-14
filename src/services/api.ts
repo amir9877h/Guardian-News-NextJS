@@ -10,6 +10,25 @@ const newsApi = axios.create({
   },
 });
 
+export type NewsDetail = {
+  response: {
+    content: {
+      id: string;
+      webTitle: string;
+      webUrl: string;
+      fields: {
+        headline: string;
+        thumbnail: string;
+        trailText: string;
+        body: string;
+        bodyText: string;
+      };
+      sectionName: string;
+      webPublicationDate: string;
+    };
+  };
+};
+
 // Interface for the news response
 interface NewsArticle {
   id: string;
@@ -25,6 +44,8 @@ interface NewsArticle {
     headline: string;
     thumbnail: string;
     trailText: string;
+    bodyText?: string;
+    body?: string;
   };
 }
 
@@ -39,6 +60,7 @@ interface NewsResponse {
     pages: number;
     orderBy: string;
     results: NewsArticle[];
+    content?: unknown;
   };
 }
 
@@ -110,6 +132,23 @@ export const newsService = {
         },
       });
       return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error("News API Error:", error.response?.data || error.message);
+      }
+      throw error;
+    }
+  },
+  getNewsDetail: async (articleId: string) => {
+    try {
+      const response = await newsApi.get<NewsDetail>(`/${articleId}`, {
+        params: {
+          "api-key": process.env.NEXT_PUBLIC_GUARDIAN_API_KEY,
+          "show-fields": "headline,thumbnail,trailText,body,bodyText",
+        },
+      });
+
+      return response.data.response.content;
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.error("News API Error:", error.response?.data || error.message);
