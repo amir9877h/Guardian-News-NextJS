@@ -1,0 +1,49 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1rem;
+}
+
+.pageNumbers {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pageLink {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  color: var(--pageLink-color);
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover:not(.disabled):not(.active) {
+    background-color: var(--pageLink-background-color-hover);
+    color: var(--pageLink-hover-color);
+  }
+
+  &.active {
+    background-color: #155263;
+    color: white;
+    border-color: #155263;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.ellipsis {
+  padding: 0.5rem;
+  color: var(--ellipsis-color);
+}
+@media only screen and (max-width: 515px) {
+  .prevLink {
+    display: none;
+  }
+}

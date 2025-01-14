@@ -45,7 +45,7 @@ interface NewsResponse {
 // API methods
 export const newsService = {
   // Get all news
-  getNews: async (page: number = 1, pageSize: number = 10) => {
+  getNews: async (page: number = 1, pageSize: number = 10, orderBy: string = "newest") => {
     try {
       const response = await newsApi.get<NewsResponse>("/search", {
         params: {
@@ -53,7 +53,7 @@ export const newsService = {
           page: page,
           "page-size": pageSize,
           "show-fields": "headline,thumbnail,trailText",
-          "order-by": "newest",
+          "order-by": orderBy,
         },
       });
 
