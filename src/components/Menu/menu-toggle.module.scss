@@ -1,0 +1,39 @@
+.menuToggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  // z-index: 111 !important;
+}
+
+.menuToggle:focus {
+  outline: none;
+}
+
+.hamburgerLine {
+  width: 2rem;
+  height: 0.25rem;
+  background: #333;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.menuToggle.active .hamburgerLine:first-child {
+  transform: rotate(45deg);
+}
+
+.menuToggle.active .hamburgerLine:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.menuToggle.active .hamburgerLine:nth-child(3) {
+  transform: rotate(-45deg);
+}

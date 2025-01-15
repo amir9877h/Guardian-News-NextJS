@@ -7,3 +7,9 @@
 .active {
   @apply border-b-2 border-link_hover font-bold;
 }
+
+@media (max-width: 1023px) {
+  .link {
+    @apply w-[fit-content];
+  }
+}

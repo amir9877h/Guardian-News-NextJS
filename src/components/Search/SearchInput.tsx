@@ -15,8 +15,6 @@ const SearchInput = () => {
   };
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      console.log(category);
-
       const cat = category !== "all" ? `&section=${category}` : "";
       handleSearch(router, `?q=${search}${cat}`);
     }

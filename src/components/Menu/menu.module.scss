@@ -1,3 +1,45 @@
+.nav {
+  @apply py-3;
+}
+.wrapper {
+  @apply flex items-center justify-between;
+}
+.linksWrapper {
+}
+.menuBtn {
+  button {
+    position: relative !important;
+  }
+}
 .navLinks {
+}
+.orderBy {
+}
 
+@media (max-width: 1023px) {
+  .nav {
+    @apply bg-gray-700 bg-opacity-0 fixed top-0 left-0 h-full w-full !p-0 transition-all duration-300 !-z-10;
+  }
+  .wrapper {
+    @apply py-4 px-2 !z-20 flex flex-col items-start justify-start gap-2 w-80 h-full bg-background text-text !m-0 -translate-x-80 transition-all duration-300;
+  }
+  .linksWrapper {
+    @apply flex flex-col w-full !z-30;
+  }
+  .menuBtn {
+    @apply self-end;
+  }
+
+  .navLinks {
+    @apply flex-col py-4;
+  }
+  .active {
+    @apply bg-opacity-80 !z-10;
+    .menuBtn {
+      z-index: 30 !important;
+    }
+    .wrapper {
+      @apply translate-x-0;
+    }
+  }
 }
