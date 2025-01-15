@@ -6,6 +6,8 @@ type SearchContextType = {
   setSearch: React.Dispatch<React.SetStateAction<string>>;
   category: string;
   setCategory: React.Dispatch<React.SetStateAction<string>>;
+  isSearchModalOpen: boolean;
+  setIsSearchModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const SearchContext = createContext<SearchContextType | undefined>(
@@ -15,12 +17,15 @@ export const SearchContext = createContext<SearchContextType | undefined>(
 export const SearchProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
   const value = {
     search,
     setSearch,
     category,
     setCategory,
+    isSearchModalOpen,
+    setIsSearchModalOpen,
   };
 
   return (

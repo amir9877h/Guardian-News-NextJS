@@ -5,10 +5,19 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 import SearchIcon from "./SearchIcon";
 
 const SearchInput = () => {
-  const { search, setSearch, category } = useSearch();
+  const {
+    search,
+    setSearch,
+    category,
+    isSearchModalOpen,
+    setIsSearchModalOpen,
+  } = useSearch();
   const router = useRouter();
   const handleSearch = (router: AppRouterInstance, searchKey: string) => {
     try {
+      if (isSearchModalOpen) {
+        setIsSearchModalOpen(false);
+      }
       router.replace(`/${searchKey}`);
     } catch (error) {
       console.log(error);

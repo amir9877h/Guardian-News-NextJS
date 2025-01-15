@@ -1,21 +1,22 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { useMenu } from "./MenuContext";
 import Menu from ".";
 import SearchModal from "../Search/SearchModal";
+import { useSearch } from "../Search/SearchContext";
 
 const MenuWrapper = () => {
   const { isMenuOpen, toggleMenu } = useMenu();
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { isSearchModalOpen, setIsSearchModalOpen } = useSearch();
 
   const toggleSearchModal = () => {
-    setIsSearchOpen(!isSearchOpen);
+    setIsSearchModalOpen(!isSearchModalOpen);
   };
 
   return (
     <>
       <SearchModal
-        isSearchOpen={isSearchOpen}
+        isSearchOpen={isSearchModalOpen}
         toggleSearchModal={toggleSearchModal}
       />
       <Menu
