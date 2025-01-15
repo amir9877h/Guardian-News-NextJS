@@ -25,6 +25,10 @@
   transform-origin: 1px;
 }
 
+.menuToggle.active .hamburgerLine {
+  @apply dark:!bg-white;
+}
+
 .menuToggle.active .hamburgerLine:first-child {
   transform: rotate(45deg);
 }
