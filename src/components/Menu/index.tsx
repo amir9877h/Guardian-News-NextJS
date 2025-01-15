@@ -3,13 +3,26 @@ import styles from "./menu.module.scss";
 import MenuLink from "./MenuLink";
 import OrderBy from "../OrderBy";
 import MenuToggle from "./MenuToggle";
+import SearchIcon from "../Search/SearchIcon";
 
-const Menu = ({ isOpen, toggle }) => {
+const Menu = ({ isOpen, toggle, toggleSearchModal }) => {
   return (
-    <nav className={[isOpen ? styles.active : ``, styles.nav].join(" ")} >
+    <nav className={[isOpen ? styles.active : ``, styles.nav].join(" ")}>
       <div className={[`g-container`, styles.wrapper].join(" ")}>
         <div className={styles.linksWrapper}>
-          <div className={styles.menuBtn}>{isOpen && <MenuToggle />}</div>
+          <div className={styles.menuBtn}>
+            {isOpen && (
+              <>
+                <SearchIcon
+                  handler={() => {
+                    toggle();
+                    toggleSearchModal();
+                  }}
+                />
+                <MenuToggle />
+              </>
+            )}
+          </div>
           <div className={[`flex gap-4`, styles.navLinks].join(" ")}>
             <MenuLink href="/">Home</MenuLink>
             <MenuLink href="/sport">Sport</MenuLink>

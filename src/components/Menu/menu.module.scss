@@ -27,7 +27,7 @@
     @apply flex flex-col w-full !z-30;
   }
   .menuBtn {
-    @apply self-end;
+    @apply flex justify-between items-center;
   }
 
   .navLinks {

@@ -3,9 +3,14 @@ import CategorySelector from "./CategorySelector";
 import SearchInput from "./SearchInput";
 import { SearchProvider } from "./SearchContext";
 
-const Search = () => {
+const Search = ({ className }) => {
   return (
-    <div className="flex flex-1 text-text max-w-[600px] border border-gray-300 bg-gray-100 h-8 rounded-md items-center p-1 has-[input:focus]:outline-red-500 has-[input:focus]:outline has-[input:focus]:outline-2 dark:bg-gray-800 max-lg:hidden">
+    <div
+      className={[
+        className,
+        "flex flex-1 text-text max-w-[600px] border border-gray-300 bg-gray-100 h-8 rounded-md items-center p-1 has-[input:focus]:outline-red-500 has-[input:focus]:outline has-[input:focus]:outline-2 dark:bg-gray-800",
+      ].join(" ")}
+    >
       <SearchProvider>
         {/* Search Input */}
         <SearchInput />

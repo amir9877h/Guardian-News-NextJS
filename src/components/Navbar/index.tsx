@@ -18,7 +18,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center">
             <div className="border-r border-gray-100 px-2 border-opacity-30">
-              <Search />
+              <Search className={"max-lg:hidden"} />
             </div>
             <ThemeToggle />
           </div>
