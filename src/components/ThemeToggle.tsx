@@ -13,10 +13,7 @@ export default function ThemeToggle() {
   }, [darkMode]);
 
   return (
-    <button
-      className="p-2 rounded-lg max-lg:hidden"
-      onClick={() => setDarkMode(!darkMode)}
-    >
+    <button className="p-2 rounded-lg" onClick={() => setDarkMode(!darkMode)}>
       {darkMode ? "🌞" : "🌙"}
     </button>
   );
