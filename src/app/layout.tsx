@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GoToTop from "@/components/GoToTop";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,10 +31,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        {children}
-        <GoToTop />
-        <Footer />
+        <Suspense>
+          <Navbar />
+          {children}
+          <GoToTop />
+          <Footer />
+        </Suspense>
       </body>
     </html>
   );
